@@ -1,2 +1,2 @@
-# FinTexhP01
+# FinTechP01
 Team08 Project 01
