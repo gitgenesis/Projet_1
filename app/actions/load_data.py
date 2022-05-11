@@ -3,11 +3,12 @@
 from dataclasses import dataclass
 import pandas as pd
 from pathlib import Path
+import requests
 
 def load_data(quandl_key):
     
     #SPY Price Data load
-    data_spy_price = pd.read_csv(Path("../data/SPY Data 05.07.22.csv"),
+    data_spy_price = pd.read_csv(Path("data/SPY Data.csv"),
         infer_datetime_format=True,
         parse_dates=['Date'])
 
@@ -21,7 +22,7 @@ def load_data(quandl_key):
     data_spy_price_df.columns = ['price']
 
     #SPY Earnings Data load
-    data_spy_earnings= pd.read_csv(Path("../data/S&P PE Ratio.csv"),
+    data_spy_earnings= pd.read_csv(Path("data/S&P PE Ratio.csv"),
             infer_datetime_format=True,
             parse_dates=['Date'])
 
@@ -37,17 +38,18 @@ def load_data(quandl_key):
     data_spy_earnings['Value'] = data_spy_earnings['Value'].astype(float)
 
     #create a DataFrame
-    data_spy_earnings_df = pd.DataFrame(data_df_earnings_spy['Value'])
+    data_spy_earnings_df = pd.DataFrame(data_spy_earnings['Value'])
     data_spy_earnings_df.columns = ['PERatio']
 
     #10Y Bond Data load
-    data_10year_price = pd.read_csv(Path("../data/10 Year Treasury Rate - Monthly.csv"),
+    data_10year_price = pd.read_csv(Path("data/10 Year Treasury Rate - Monthly.csv"),
             infer_datetime_format=True,
             parse_dates=['Date'])
 
     #10Y Bond Data Transform
     data_10year_price['Date'] = pd.to_datetime(data_10year_price['Date']).dt.date
     data_10year_price['Value'] = data_10year_price['Value'].str.replace("%","",regex = True).astype(float)
+    data_10year_price['Value'] = data_10year_price['Value']/100
     data_10year_price = data_10year_price.set_index('Date')
 
     #Create DataFrame
@@ -65,6 +67,7 @@ def load_data(quandl_key):
 
     #CPI Data Transformation
     df = pd.DataFrame(response_cpi_url)
+
     cpistart = df["dataset"]['data']
     dates = []
     prices = []
@@ -77,13 +80,13 @@ def load_data(quandl_key):
 
     #Create DataFrame
     cpi_df = pd.DataFrame(zipped, columns=['Date','CPI'])
+    cpi_df['Date'] = pd.to_datetime(cpi_df['Date']).dt.date
     cpi_df.set_index('Date', inplace=True)
 
-    # change in date time format
-    cpi_df.index = pd.to_datetime(cpi_df.index, format = '%Y-%m-%d').strftime('%m/%d/%Y')
 
     #Merge all dataset
     merged_data = pd.concat([data_spy_earnings_df, data_spy_price_df, data_10year_price_df,cpi_df],axis = 1, join = 'inner')
     merged_data['earnings'] = merged_data['price'] / merged_data['PERatio']
-
+    
+    
     return merged_data

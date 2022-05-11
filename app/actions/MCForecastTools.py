@@ -2,7 +2,7 @@
 import numpy as np
 import pandas as pd
 import os
-import alpaca_trade_api as tradeapi
+#import alpaca_trade_api as tradeapi
 import datetime as dt
 import pytz
 
@@ -92,8 +92,8 @@ class MCSimulation:
         # Run the simulation of projecting stock prices 'nSim' number of times
         for n in range(self.nSim):
         
-            if n % 10 == 0:
-                print(f"Running Monte Carlo simulation number {n}.")
+            #if n % 10 == 0:
+            #   print(f"Running Monte Carlo simulation number {n}.")
         
             # Create a list of lists to contain the simulated values for each stock
             simvals = [[p] for p in last_prices]
