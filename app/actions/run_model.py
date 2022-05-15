@@ -1,4 +1,5 @@
 #Import Modules
+from regex import E
 from sympy import re
 from actions.MCForecastTools import MCSimulation
 import pandas as pd

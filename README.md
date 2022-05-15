@@ -1,7 +1,6 @@
 
 # Project 1 : S&P Simulation Tool
 
-
 # Financial Simulation with APIs / Predicting the Future with Monte Carlo Simulations
 
 ## Summary  
@@ -42,9 +41,6 @@ Imports and required libraries and dependencies.
         %matplotlib inline
 
 You will need to create an account with Alpaca(https://alpaca.markets/). in order to get an API ID and Secret Key. (see SAMPLE.env for your dotenv file)
-
-
-
 
 ---
 

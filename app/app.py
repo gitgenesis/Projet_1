@@ -8,6 +8,9 @@ from actions.initial_questions import simulation_info
 import questionary
 from dotenv import load_dotenv
 
+import warnings
+warnings.filterwarnings("ignore")
+
 #Create a function called 'running_app' that will generate all calculations based on the parameters
 # This function will be called from the `__main__` loop.
 
