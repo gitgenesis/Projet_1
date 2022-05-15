@@ -4,6 +4,9 @@
 # Financial Simulation with APIs / Predicting the Future with Monte Carlo Simulations
 
 ## Summary  
+This application predicts S&P price based on estimating both Real Rate and S&P Earnings. For that we use MonteCarlo simulations. Below you can see a quick look of the application running.
+
+![image](https://user-images.githubusercontent.com/63212742/168455409-0f6c4f75-d4ae-4d5c-8787-4455b4efc9fb.png)
 
 
 ---
@@ -12,7 +15,7 @@
 Our Financial analysis includes the following:
 
 
-- Collect the Stock and Bond data Using the Alpaca SDK
+- Collect the Stock and Bond data Using the Nasdaq AP
 
 - Evaluate the data
 
@@ -40,7 +43,7 @@ Imports and required libraries and dependencies.
 
         %matplotlib inline
 
-You will need to create an account with Alpaca(https://alpaca.markets/). in order to get an API ID and Secret Key. (see SAMPLE.env for your dotenv file)
+You will need to create an account with Data Nasdaq (https://data.nasdaq.com) in order to get an API ID and Secret Key. (see SAMPLE.env for your dotenv file)
 
 ---
 
