@@ -28,7 +28,9 @@ Our Financial analysis includes the following:
 ---
 
 ## Technologies
-see requierement.txt
+See requierement.txt
+
+Important: you should add a document .env with your DATA.NASDAQ API Key in order to get the entire application working.
 
 ## Programing and financial libraries
 Imports and required libraries and dependencies. 
