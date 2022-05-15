@@ -15,7 +15,7 @@ This application predicts S&P price based on estimating both Real Rate and S&P E
 Our Financial analysis includes the following:
 
 
-- Collect the Stock and Bond data Using the Nasdaq AP
+- Collect the Stock and Bond data Using the Nasdaq API
 
 - Evaluate the data
 
