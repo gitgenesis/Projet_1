@@ -51,11 +51,11 @@ You will need to create an account with Data Nasdaq (https://data.nasdaq.com) in
 
 ## Contributors
 
-Tiago Lopes 
-Philip DeNormandie
-Dynah Beermann
-Bennett Kramer
-Drissa Compaore 
+- Tiago Lopes 
+- Philip DeNormandie
+- Dynah Beermann
+- Bennett Kramer
+- Drissa Compaore 
 
 ## License
 
